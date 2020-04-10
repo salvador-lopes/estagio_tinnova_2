@@ -1,0 +1,30 @@
+{
+  "name": "tinnova_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie": "^0.4.0",
+    "cookie-parser": "^1.4.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "knex": "^0.20.13",
+    "marko": "^4.19.12",
+    "parser": "^0.1.4",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "session-file-store": "^1.4.0",
+    "sqlite3": "https://github.com/mapbox/node-sqlite3/tarball/master",
+    "uuid": "^7.0.3"
+  }
+}
