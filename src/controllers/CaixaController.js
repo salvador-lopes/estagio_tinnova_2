@@ -34,13 +34,10 @@ module.exports = {
 
 
     async saca(req, res) {
-        console.log(">> Saque solicitado..."); // RSP 
-
         const saque = req.body.saque;
         const idCliente = req.body.id;
 
         if (req.session.userid == null) {
-            console.log(">> Sessao inexistente para saque."); // RSP
             return res.status(401).json({ error: "usuário ainda não autenticado" });
         }
 
@@ -53,7 +50,6 @@ module.exports = {
             updateSaldo(novoSaldo, idCliente);
 
             const respBody = { msg: 'saque efetuado com sucesso', notas: notas, saldoFinal: novoSaldo };
-            console.log(respBody);
             return res.json(respBody);
         }
         else {

@@ -4,7 +4,6 @@ const crypto = require('crypto');
 
 module.exports = {
     async create(req, res) {
-        console.log(req.body);
         const { nome, saldo_inicial, senha } = req.body;
         const id = crypto.randomBytes(2).toString('HEX');
 
@@ -21,14 +20,12 @@ module.exports = {
         const { id } = req.params;
         const senha = req.body.senha;
 
-
         const bd = await connection('clientes')
             .where('id', id)
             .select('id', 'senha')
             .first();
 
         if (bd.senha !== senha) {
-
             return res.status(401).json({ error: "senha não confere" });
         }
         await connection('clientes')
@@ -36,10 +33,12 @@ module.exports = {
             .delete();
         return res.status(204).send()
     },
+
     async lista(req, res) {
         const clientes_all = await connection('clientes').select('*');
         return res.json(clientes_all);
     },
+
     async edita(req, res) {
         const { id } = req.params;
         await connection('clientes')
